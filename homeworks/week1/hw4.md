@@ -13,7 +13,7 @@
 git status: 查看現在狀態 (是否有更改過的檔案)<br>
 git add S :把S加入版本控制 git add . : 資料夾內的檔案都加入版本控制<br>
 git rm —cached S: 把S移出版本控制<br>
-git commit -m "版本名稱" :將add過後的檔案，儲存為一個新版本<br>
+git commit -m "版本名稱" :將add過後的檔案，儲存為一個新版本 (是將目前版本做一個截圖(snapshot))<br>
 git log: 歷史版本紀錄 git log —oneline(簡易條列版本紀錄)<br>
 * 修改紀錄產生時，gti status 會出現紅色字體標示哪些東西`被改變`了,這時可以將改變內容`add`去版本控制後，做git commit -r "" 產生`新的版本`( 用log查看是否有新的commit)
 * 若修改多個檔案的作法
@@ -23,9 +23,12 @@ git log: 歷史版本紀錄 git log —oneline(簡易條列版本紀錄)<br>
 ## Git & GitHub   
 目前應該已經理解Git要如何創建、修改、控制。<br>
 所謂的GitHub像是Git的倉庫，我們可以將我們的Git上傳到Github上讓`大眾`開源使用。<br>
-好處可以列舉得就有很多啦，像是剛剛提到的免費且開源、速度快檔案小(Git在於它並不是記錄版本的差異，而是記錄檔案內容的`快照`（snapshot），可以讓 Git 在`快速`的切換版本。)。
-在解釋Git Hub如何使用前必須前提及一個概念「`branch`」
-### Branch想法
+好處可以列舉得就有很多啦，像是剛剛提到的免費且開源、速度快檔案小(Git在於它並不是記錄版本的差異，而是記錄檔案內容的`快照`（snapshot），可以讓 Git 在`快速`的切換版本。)。<br>
+在解釋Git Hub如何使用前必須先提及「`branch`」<br>
+* 在Git 裡面有三階段 1. Woriking後用Git add 到2.Staging階段 git commit 到 3. repository(github)<br>
+本地working 本地Staging 遠端repository.
+
+## Branch想法
 目的是為了解決一條線開發，在外面工作常常會多人開發一個Project，因此我們可以想成我們複製`主要的資料(master or main)`，到自己的開發環境，再將修改完且無bug的資料放進主資料夾(去防範`破壞主資料夾的內容`)。
 ### Branch 基本操作
 >git branch 名稱 : 開一個新的branch<br>
@@ -33,7 +36,7 @@ git branch -v 看有哪些 branch<br>
 git branch -d 名稱: 刪除branch<br>
 git checkout 版本名稱: 查看某個版本 <br>
 git merge branch名稱: 把別的branch 合併過來<br>
-### 何謂Conflict
+### 出現Conflict
 工作時常常會遇到多人開發，有可能大家修改到同一個檔案or同個程式，此時兩個版本Git會不知道要採用哪位的修改的內容。用git status會顯示 both modify ，這時要到檔案中去`手動`選擇要哪個版本。
 ## GitHub操作
 在了解為什麼要用Branch開發後，接者要了解怎麼將Git內容傳到我們的倉庫中(Github)。
