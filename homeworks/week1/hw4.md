@@ -12,12 +12,12 @@
 .gitignore: 要忽略檔案 (可將數個不想加入版本控制的檔案整合再一起)<br>
 git status: 查看現在狀態 (是否有更改過的檔案)<br>
 git add S :把S加入版本控制 git add . : 資料夾內的檔案都加入版本控制<br>
-git rm —cached S: 把S移出版本控制<br>
-git commit -m "版本名稱" :將add過後的檔案，儲存為一個新版本 (是將目前版本做一個截圖(snapshot))<br>
-git log: 歷史版本紀錄 git log —oneline(簡易條列版本紀錄)<br>
+git rm --cached S: 把S移出版本控制<br>
+git commit -m "commit的訊息" :將add過後的檔案，儲存為一個新版本 (是將目前版本做一個截圖(snapshot))<br>
+git log: 歷史版本紀錄 git log --oneline(簡易條列版本紀錄)<br>
 * 修改紀錄產生時，gti status 會出現紅色字體標示哪些東西`被改變`了,這時可以將改變內容`add`去版本控制後，做git commit -r "" 產生`新的版本`( 用log查看是否有新的commit)
 * 若修改多個檔案的作法
-1. git add. 全部修改的一起做Add
+1. git add .(全部修改的一起做Add)
 2. git commit -am 一個指令完成(新增的檔案無法被納入)
 ---
 ## Git & GitHub   
@@ -45,7 +45,7 @@ git pull origin master: GitHub 的版本可以拉下來<br>
 * Push 是指將我們local端的版本，`推`到origin端(倉庫)做保存，當然我們也可以在倉庫上修改我們的內容。
 * Pull 是相反的概念，若我們有修改倉庫端的內容 可以用`拉`的方式，將origin端pull回我們local端。<br>
 
-git commit —amend 修改commit名稱<br>
+git commit --amend 修改commit名稱<br>
 git reset Head^ 回到`最新`的前一個版本<br>
 git checkout(restore) — 檔案名稱 : 可以把修改的恢復 當前版本原本樣貌<br>
 git branch -m 名稱 —重新命名branch名稱<br>
