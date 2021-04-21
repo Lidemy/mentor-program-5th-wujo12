@@ -27,5 +27,5 @@
 
 Step1: pwd 找出目前的路徑(了解檔案會建在哪裡)<br>
 Step2: mkdir "wifi" <br>
-Step3: touch afu.js<br>
-這樣就簡單完成拉! 
+Step3: cd wifi (進入資料夾) <br>
+Step4: touch afu.js
