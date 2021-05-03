@@ -18,7 +18,7 @@
 
 ## hw5：聯誼順序比大小
 這題我卡了一天，最後受不了去參考了學長姐的答案， 一步一步跟者做，並思考其中的差異在哪。
-這題要注意的是題目範圍，因為數字太大，所以下面這個寫法是我一開始的想法，但就是拿不到AC。
+這題要注意的是題目範圍，因為數字太大，所以下面這個寫法是我一開始的想法，但就是拿不到AC。 想請教原因為何?
 ```
 function solve(lines) {
 let tamp = Number(lines[0])
@@ -34,85 +34,16 @@ function BigorSmall(number1,number2,compete){
   if (number1 === number2){
     return 'DRAW'
   }
-  if (number1 > number2 && compete == 1){
+  if (number1 > number2 && compete === '1'){
     return 'A'
   }
-  if (number1 > number1 && compete == -1){
+  if (number1 > number1 && compete === '-1'){
     return 'B'
   }
-  if (number2 > number1 && compete == 1){
+  if (number2 > number1 && compete === '1'){
     return 'B'
   }
-  if (number2 > number1 && compete == -1){
+  if (number2 > number1 && compete === '-1'){
     return 'A'
   }
 } 
-```
-平手是最好處理的，但是接下來是差異的地方
-我們不比較數字的大小，而是比較數字的長度(在這邊應該是字串的關係)，因為前面把他設成陣列了。
-所以先寫好比大 誰會贏，若是改變比小就把數字交換位置。
-最後就把輸入寫好，我光是輸入就卡了好久，完全不知道還能把陣列這樣設定(let [a, b, k] = lines[i].split(' '))。
-真的是又學到一課。
-
-
-
-這邊想提一下eslint問題，修改完之後，答案卻無法Ac了，不知道是否是 = 被改之類的問題。
-```
-function BigorSmall(number1,number2,compete){
-
-  if (number1 === number2){
-    return 'DRAW'
-  }
-  if (compete == -1){
-    let temp = number1
-    number1= number2
-    number2 = temp
-  }
-
-  const lengthA= number1.length
-  const lengthB= number2.length
-
-  if (lengthA != lengthB){
-     return lengthA > lengthB ? "A" : "B"
-  }
-  for (let j=0; j< lengthA;j++){
-    if (number1[j] == number2[j]){
-      continue;
-    }
-     return number1[j] > number2[j] ? "A" : "B"
-  }
-}
-
-// 以下eslint版本
-
-function solve(lines) {
-  const tamp = Number(lines[0])
-  for (let i = 1; i <= tamp; i++) {
-    const [a, b, k] = lines[i].split(' ')
-    console.log(BigorSmall(a, b, k))
-  }
-}
-
-function BigorSmall(number1, number2, compete) {
-  if (number1 === number2) {
-    return 'DRAW'
-  }
-  if (compete === -1) {
-    const temp = number1
-    number1 = number2
-    number2 = temp
-  }
-
-  const lengthA = number1.length
-  const lengthB = number2.length
-
-  if (lengthA !== lengthB) {
-    return lengthA > lengthB ? 'A' : 'B'
-  }
-  for (let j = 0; j < lengthA; j++) {
-    if (number1[j] === number2[j]) {
-      continue
-    }
-    return number1[j] > number2[j] ? 'A' : 'B'
-  }
-}
