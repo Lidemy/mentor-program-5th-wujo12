@@ -17,30 +17,30 @@ function solve(lines) {
   const tamp = Number(lines[0])
   for (let i = 1; i <= tamp; i++) {
     const [a, b, k] = lines[i].split(' ')
-    console.log(BigorSmall(a, b, k))
+    console.log(bigorSmall(a, b, k))
   }
 }
 
-function BigorSmall(number1, number2, compete) {
-  if (number1 === number2) {
+function bigorSmall(str1, str2, compete) {
+  if (str1 === str2) {
     return 'DRAW'
   }
-  if (compete === -1) {
-    const temp = number1
-    number1 = number2
-    number2 = temp
+  if (compete === '-1') {
+    const temp = str1
+    str1 = str2
+    str2 = temp
   }
 
-  const lengthA = number1.length
-  const lengthB = number2.length
+  const lengthA = str1.length
+  const lengthB = str2.length
 
   if (lengthA !== lengthB) {
     return lengthA > lengthB ? 'A' : 'B'
   }
   for (let j = 0; j < lengthA; j++) {
-    if (number1[j] === number2[j]) {
+    if (str1[j] === str2[j]) {
       continue
     }
-    return number1[j] > number2[j] ? 'A' : 'B'
+    return str1[j] > str2[j] ? 'A' : 'B'
   }
 }

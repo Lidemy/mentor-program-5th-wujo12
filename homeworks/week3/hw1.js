@@ -14,9 +14,9 @@ rl.on('close', () => {
 })
 
 function solve(lines) {
-  const tam = Number(lines[0])
+  const tem = Number(lines[0])
   let star = ''
-  for (let i = 0; i < tam; i++) {
+  for (let i = 0; i < tem; i++) {
     star += '*'
     console.log(star)
   }

@@ -24,8 +24,7 @@ function solve(lines) {
   }
 }
 
-// 1634
-function howManydigit(n) {
+function countDigit(n) {
   let result = 0
   if (n === 0) {
     return 1
@@ -39,7 +38,7 @@ function howManydigit(n) {
 function isNarcissistic(n) {
   const m = n
   let sum = 0
-  const digist = howManydigit(n)
+  const digist = countDigit(n)
   while (n !== 0) {
     const num = n % 10
     sum += num ** digist

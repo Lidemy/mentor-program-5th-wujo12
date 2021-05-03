@@ -15,7 +15,7 @@ rl.on('close', () => {
 
 function solve(lines) {
   const tam = lines[0]
-  const reverse = re(tam)
+  const reverse = reverseString(tam)
 
   if (tam === reverse) {
     console.log('True')
@@ -23,7 +23,7 @@ function solve(lines) {
     console.log('False')
   }
 
-  function re(tam) {
+  function reverseString(tam) {
     let s = ''
     for (let i = tam.length - 1; i >= 0; i--) {
       s += tam[i]
