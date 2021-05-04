@@ -14,19 +14,14 @@ rl.on('close', () => {
 })
 
 function solve(lines) {
-  const tam = lines[0]
-  const reverse = reverseString(tam)
+  const temp = lines[0]
+  const newstr = reverseString(temp)
+  console.log(temp === newstr ? 'True' : 'False')
 
-  if (tam === reverse) {
-    console.log('True')
-  } else {
-    console.log('False')
-  }
-
-  function reverseString(tam) {
-    let s = ''
-    for (let i = tam.length - 1; i >= 0; i--) {
-      s += tam[i]
-    } return s
+  function reverseString(temp) {
+    let str = ''
+    for (let i = temp.length - 1; i >= 0; i--) {
+      str += temp[i]
+    } return str
   }
 }
