@@ -17,11 +17,11 @@ function solve(lines) {
   const tamp = Number(lines[0])
   for (let i = 1; i <= tamp; i++) {
     const [a, b, k] = lines[i].split(' ')
-    console.log(bigorSmall(a, b, k))
+    console.log(compareBirOrSmall(a, b, k))
   }
 }
 
-function bigorSmall(str1, str2, compete) {
+function compareBirOrSmall(str1, str2, compete) {
   if (str1 === str2) {
     return 'DRAW'
   }

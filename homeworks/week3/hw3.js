@@ -27,14 +27,10 @@ function isPrime(n) {
   if (n === '1') {
     return false
   }
-  for (let i = 0; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     if (n % i === 0) {
       result++
     }
   }
-  if (result > 2) {
-    return false
-  } else {
-    return true
-  }
+  return result <= 2
 }

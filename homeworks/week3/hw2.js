@@ -14,13 +14,11 @@ rl.on('close', () => {
 })
 
 function solve(lines) {
-  const tam = lines[0].split(' ')
-  const n = Number(tam[0])
-  const m = Number(tam[1])
-  for (let i = n; i <= m; i++) {
-    if (isNarcissistic(i)) {
-      console.log(i)
-    }
+  const temp = lines[0].split(' ')
+  const str1 = Number(temp[0])
+  const str2 = Number(temp[1])
+  for (let i = str1; i <= str2; i++) {
+    if (isNarcissistic(i)) console.log(i)
   }
 }
 
@@ -32,7 +30,8 @@ function countDigit(n) {
   while (n !== 0) {
     n = Math.floor(n / 10)
     result++
-  } return result
+  }
+  return result
 }
 
 function isNarcissistic(n) {
