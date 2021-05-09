@@ -4,6 +4,7 @@ request('https://lidemy-book-store.herokuapp.com/books?_limit=10',
   (err, response, body) => {
     if (err) {
       console.log('error', err)
+      return
     }
     let data
     try {

@@ -10,23 +10,26 @@ switch (action) {
     listBooks()
     break
   case 'read' :
-    readBooks(param)
+    readBook(param)
     break
   case 'delete' :
-    deleteBooks(param)
+    deleteBook(param)
     break
   case 'creat' :
-    addBooks(param)
+    addBook(param)
     break
   case 'update' :
-    renewBooks(param, process.argv[4])
+    renewBook(param, process.argv[4])
     break
+  default :
+    console.log('請輸入動作')
 }
 function listBooks() {
   request(`${apiUrl}/books?_limit=20`,
     (err, response, body) => {
       if (err) {
         console.log('error', err)
+        return
       }
       let data
       try {
@@ -41,11 +44,12 @@ function listBooks() {
     }
   )
 }
-function readBooks(id) {
+function readBook(id) {
   request(`${apiUrl}/books/${id}`,
     (err, response, body) => {
       if (err) {
         console.log('error', err)
+        return
       }
       let data
       try {
@@ -58,7 +62,7 @@ function readBooks(id) {
     }
   )
 }
-function deleteBooks(id) {
+function deleteBook(id) {
   request.delete(`${apiUrl}/books/${id}`,
     (err, response, body) => {
       if (err) {
@@ -69,18 +73,18 @@ function deleteBooks(id) {
     }
   )
 }
-function addBooks(name) {
+function addBook(name) {
   request.post(`${apiUrl}/books`, { form: { name } },
     (err, response, body) => {
       if (err) {
         console.log('error', err)
         return
       }
-      console.log('新稱成功')
+      console.log('新增成功')
     }
   )
 }
-function renewBooks(id, name) {
+function renewBook(id, name) {
   request.patch(`${apiUrl}/books/${id}`, { form: { name } },
     (err, response, body) => {
       if (err) {

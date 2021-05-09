@@ -11,7 +11,13 @@ request(
   },
   (err, res, body) => {
     if (err) return console.log('抓取失敗')
-    const data = JSON.parse(body)
+    let data
+    try {
+      data = JSON.parse(body)
+    } catch (err) {
+      console.log(err)
+      return
+    }
     const games = data.top
     for (const game of games) {
       console.log(`${game.viewers} ${game.game.name}`)

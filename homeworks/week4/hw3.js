@@ -2,12 +2,13 @@ const request = require('request')
 const process = require('process')
 
 const apiUrl = 'https://restcountries.eu/rest/v2/name/'
-const searchCountry = process.argv[2]
+const countryName = process.argv[2]
 
-request(apiUrl + searchCountry,
-  (err, response, body) => {
+request(apiUrl + countryName,
+  (err, res, body) => {
     if (err) {
       console.log('找不到資訊', err)
+      return
     }
     let data
     try {
@@ -16,7 +17,7 @@ request(apiUrl + searchCountry,
       console.log(err)
       return
     }
-    if (data.status === 404) {
+    if (res.statusCode >= 400 && res.statusCode < 500) {
       console.log('找不到國家資訊')
     }
     for (let i = 0; i < data.length; i++) {

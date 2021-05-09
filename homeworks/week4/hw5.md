@@ -34,9 +34,9 @@ Base URL: https://lidemy-restaurants.herokuapp.com
 --------------|:-----:|-----:| ----:|------------------------
 |回傳所有餐廳資料|GET	|/restaurants       |_limit:限制回傳資料數量|   /restaurants?_limit=5|
 |回傳單一餐廳資料|GET	|/restaurants/:id	|無                   |          /restaurant/10|
-|新增餐廳	|POST	|/restaurants          |name:書名            |                         無|
+|新增餐廳	|POST	|/restaurants          |name:餐廳名            |                         無|
 |刪除餐廳	|DELETE	|/restaurants/:id      |無                   |                          無|
-|更改餐廳資訊|PATCH  |/restaurants/:id      |name: 書名	          |                            無|
+|更改餐廳資訊|PATCH  |/restaurants/:id      |name: 餐廳名	          |                            無|
 
 # 回傳所有餐廳資料
 ```
@@ -73,14 +73,7 @@ request.post(
 ```
 const request = require("request");
 
-request.post(
-    url:"https://lidemy-restaurant.herokuapp.com/restaurants/"+id
-    ,form: {
-      name, 
-    },
-  },
-  (err, res, body) => {
-    //需求內容
-  }
-);
+request.delete("https://lidemy-restaurant.herokuapp.com/restaurants/"+ id, (err, res, body) => {
+  // 需求內容
+})
 ```
